@@ -146,4 +146,7 @@ REFERENCES suppliers (id);
 ALTER TABLE orders_products
 ADD CONSTRAINT fk_orders_products_orders 
 FOREIGN KEY (order_id)
-REFERENCES orders (id);
+REFERENCES orders (id),
+ADD CONSTRAINT fk_orders_products_products 
+FOREIGN KEY (product_id)
+REFERENCES products (id);
