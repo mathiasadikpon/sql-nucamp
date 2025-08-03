@@ -125,4 +125,15 @@ REFERENCES categories (id);
 
 
 -- TODO create more constraints here...
+-- Task 10: write two ALTER TABLE statements to enforce the two foreign key references from the orders table (order-to-customer and order-to-employee). For the first of the two ALTER TABLE statements, add a constraint named fk_orders_customers with the foreign key of customer_id that references customers. For the second, add a constraint named fk_orders_employees with the foreign key of employee_id that references employees.
+ALTER TABLE orders
+ADD CONSTRAINT fk_orders_customers 
+FOREIGN KEY (customer_id)
+REFERENCES customers (id);
+
+ALTER TABLE orders
+ADD CONSTRAINT fk_orders_employees 
+FOREIGN KEY (employee_id)
+REFERENCES employees (id);
+
 
