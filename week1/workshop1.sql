@@ -150,3 +150,12 @@ REFERENCES orders (id),
 ADD CONSTRAINT fk_orders_products_products 
 FOREIGN KEY (product_id)
 REFERENCES products (id);
+
+-- Task 13: enforce the many-to-many relationship between employees and territories by adding two ALTER TABLE statements on the employees_territories table.
+ALTER TABLE employees_territories
+ADD CONSTRAINT fk_employees_territories_employees 
+FOREIGN KEY (employee_id)
+REFERENCES employees (id),
+ADD CONSTRAINT fk_employees_territories_territories 
+FOREIGN KEY (territory_id)
+REFERENCES territories (id);
