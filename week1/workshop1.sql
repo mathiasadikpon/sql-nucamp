@@ -104,6 +104,13 @@ CREATE TABLE offices (
     PRIMARY KEY (id)
 ); 
 
+-- Task 9: create us_states table
+CREATE TABLE us_states (
+    id SERIAL,
+    name TEXT NOT NULL,
+    abbreviation CHARACTER(2) NOT NULL,
+    PRIMARY KEY (id)
+);
 
 ---
 --- Add foreign key constraints
