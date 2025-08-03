@@ -100,6 +100,7 @@ CREATE TABLE employees_territories (
 CREATE TABLE offices (
     id SERIAL,
     address_line TEXT NOT NULL,
+    territory_id INT NOT NULL,
     PRIMARY KEY (id)
 ); 
 
