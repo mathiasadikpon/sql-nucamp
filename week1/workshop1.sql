@@ -73,6 +73,14 @@ CREATE TABLE orders (
     PRIMARY KEY (id)
 );
 
+-- Task 5: create an orders_products table as a bridge table to implement the many-to-many relationship between the Order and Product entities
+CREATE TABLE orders_products (
+    product_id INT,
+    order_id INT,
+    quantity INT NOT NULL,
+    discount NUMERIC NOT NULL,
+    PRIMARY KEY (product_id, order_id)
+);
 
 ---
 --- Add foreign key constraints
