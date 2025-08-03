@@ -168,7 +168,7 @@ ADD CONSTRAINT fk_offices_territories
 FOREIGN KEY (territory_id)
 REFERENCES territories (id);
 
--- Bonus task: enforce employees table with a foreign key constraint named reports_to
+-- Bonus task: enforce employees table with a foreign key constraint on the column named reports_to
 ALTER TABLE employees
 ADD CONSTRAINT fk_employees_reports_to 
 FOREIGN KEY (reports_to)
