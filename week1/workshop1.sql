@@ -42,7 +42,12 @@ CREATE TABLE categories (
 );
 
 -- TODO create more tables here...
-
+-- Task 1
+CREATE TABLE suppliers (
+    id SERIAL,
+    name TEXT NOT NULL,
+    PRIMARY KEY (id)
+);
 
 ---
 --- Add foreign key constraints
