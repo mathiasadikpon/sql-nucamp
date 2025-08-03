@@ -89,6 +89,12 @@ CREATE TABLE territories (
     PRIMARY KEY (id)
 );
 
+-- Task 7: create employees_territories table
+CREATE TABLE employees_territories (
+    employee_id INT,
+    territory_id INT,
+    PRIMARY KEY (employee_id, territory_id)
+);
 
 
 ---
