@@ -82,6 +82,15 @@ CREATE TABLE orders_products (
     PRIMARY KEY (product_id, order_id)
 );
 
+-- Task 6: create territories table
+CREATE TABLE territories (
+    id SERIAL,
+    description TEXT NOT NULL,
+    PRIMARY KEY (id)
+);
+
+
+
 ---
 --- Add foreign key constraints
 ---
