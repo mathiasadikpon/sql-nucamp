@@ -49,6 +49,13 @@ CREATE TABLE suppliers (
     PRIMARY KEY (id)
 );
 
+-- Task 2: create a customers table
+CREATE TABLE customers (
+    id SERIAL,
+    company_name TEXT NOT NULL,
+    PRIMARY KEY (id)
+);
+
 ---
 --- Add foreign key constraints
 ---
