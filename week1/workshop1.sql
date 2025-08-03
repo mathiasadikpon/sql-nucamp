@@ -141,3 +141,9 @@ ALTER TABLE products
 ADD CONSTRAINT fk_products_suppliers 
 FOREIGN KEY (supplier_id)
 REFERENCES suppliers (id);
+
+-- Task 12: enforce the many-to-many relationship between orders and products by using two ALTER TABLE statements on the orders_products table.
+ALTER TABLE orders_products
+ADD CONSTRAINT fk_orders_products_orders 
+FOREIGN KEY (order_id)
+REFERENCES orders (id);
