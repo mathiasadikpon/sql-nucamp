@@ -159,3 +159,9 @@ REFERENCES employees (id),
 ADD CONSTRAINT fk_employees_territories_territories 
 FOREIGN KEY (territory_id)
 REFERENCES territories (id);
+
+-- Task 14: enforce the one-to-one relationship between offices and territories by adding an ALTER TABLE statement on the offices table.
+ALTER TABLE offices
+ADD CONSTRAINT fk_offices_territories 
+FOREIGN KEY (territory_id)
+REFERENCES territories (id);
