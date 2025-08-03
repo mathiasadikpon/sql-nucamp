@@ -64,6 +64,14 @@ CREATE TABLE employees (
     PRIMARY KEY (id)
 );
 
+-- Task 4: create an orders table
+CREATE TABLE orders (
+    id SERIAL,
+    date DATE,
+    PRIMARY KEY (id)
+);
+
+
 ---
 --- Add foreign key constraints
 ---
