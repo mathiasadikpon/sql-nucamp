@@ -68,7 +68,7 @@ CREATE TABLE employees (
 CREATE TABLE orders (
     id SERIAL,
     date DATE,
-    customer_id INT,
+    customer_id INT NOT NULL,
     employee_id INT,
     PRIMARY KEY (id)
 );
