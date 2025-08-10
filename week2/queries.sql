@@ -112,6 +112,13 @@ ORDER BY order_count DESC, customer_id;
 -- and where you might want to focus more advertising - a great data
 -- science application! We will take a closer look at data science and
 -- data visualizations in a future lesson.
+SELECT ship_address, COUNT(ship_address) AS order_count
+FROM orders
+GROUP BY ship_address
+ORDER BY order_count DESC
+LIMIT 1;
+
+
 
 
 
