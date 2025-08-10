@@ -16,7 +16,9 @@ ORDER BY category_id;
 -- and order the results by descending order.
 --
 -- Hint: Use the DISTINCT keyword at the appropriate place in your query. 
-
+SELECT DISTINCT city
+FROM employees
+ORDER BY city DESC;
 
 
 -- 1.3
