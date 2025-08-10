@@ -121,7 +121,6 @@ LIMIT 1;
 
 
 
-
 -- 2.4
 -- Let's say we want to offer a new freight discount, but only to customers
 -- who have spent more than $500 total across all of their orders.
@@ -134,6 +133,11 @@ LIMIT 1;
 -- Use the HAVING clause to only include results where the SUM(freight) 
 -- is more than $500. 
 -- Order the results by customer_id.
+SELECT customer_id, SUM(freight)
+FROM orders
+GROUP BY customer_id
+HAVING SUM(freight)>500
+ORDER BY customer_id;
 
 
 
