@@ -40,6 +40,10 @@ ORDER BY product_id;
 -- employees who do not have anyone to report to
 -- (i.e. those WHERE the reports_to field IS NULL).
 -- Order the results by employee_id.
+SELECT first_name, last_name
+FROM employees
+WHERE reports_to IS NULL
+ORDER BY employee_id;
 
 
 
