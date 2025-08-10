@@ -90,6 +90,10 @@ FROM orders;
 -- then customer_id.
 -- Think carefully about how this query answers the question, how many
 -- orders has each customer made?
+SELECT customer_id, COUNT(order_id) AS order_count
+FROM orders
+GROUP BY customer_id
+ORDER BY order_count DESC, customer_id;
 
 
 
