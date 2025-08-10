@@ -165,9 +165,20 @@ ORDER BY customer_id;
 -- was created by the WITH query).
 
 WITH shippers_per_customer AS (
-    -- Delete this line and replace it with your first SELECT query to create the CTE.
-) 
--- Delete this line and replace it with your second SELECT query using the CTE.
+    -- This query should select COUNT(DISTINCT ship_via), aliased as 
+    -- shipper_count, from the orders table.
+    -- Group the results by customer_id. 
+    -- The result set from this query comprises the CTE. 
+    -- 
+    -- Then, where indicated below that, replace the second comment with
+	SELECT COUNT(DISTINCT ship_via) AS shipper_count
+	FROM orders
+	GROUP BY customer_id  
+)
+-- The second SELECT query. This query should select the average of the
+-- shipper_count fields from the shippers_per_customer table
+SELECT AVG(shipper_count)
+FROM shippers_per_customer;
 
 
 
