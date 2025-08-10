@@ -77,6 +77,8 @@ ORDER BY product_id;
 -- 2.1
 -- How many orders have been made?
 -- Write a SELECT query that will count all rows/records in the orders table.
+SELECT COUNT(*)
+FROM orders;
 
 
 
