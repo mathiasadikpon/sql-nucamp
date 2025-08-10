@@ -59,6 +59,10 @@ ORDER BY employee_id;
 -- and confirm you're getting the data that you expect.
 -- Then add each of the clauses, one by one, testing after each one,
 -- until you reach the final result.
+SELECT product_name
+FROM products
+WHERE (units_in_stock <= reorder_level) AND (discontinued = false) AND (units_on_order > 0)
+ORDER BY product_id;
 
 
 
