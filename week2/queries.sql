@@ -6,7 +6,9 @@
 -- Write your answer in the blank space below.
 -- Make sure to test it against the northwind database, using
 -- either pgAdmin or psql!
-
+SELECT *
+FROM categories
+ORDER BY category_id;
 
 
 -- 1.2
