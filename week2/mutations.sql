@@ -38,6 +38,11 @@ CREATE TABLE employees_categories (
 --
 -- Test your answer in pgAdmin or psql and verify that it worked correctly, then
 -- place it in the blank space below.
+ALTER TABLE employees_categories
+ADD CONSTRAINT fk_ec_employees
+FOREIGN KEY (employee_id)
+REFERENCES employees(employee_id)
+ON DELETE CASCADE;
 
 
 
