@@ -360,3 +360,10 @@ ORDER BY company_name;
 --
 -- Finally, order by the SUM of the quantity of the order_details table, 
 -- in descending order.
+SELECT c.company_name, SUM(od.quantity) AS total_quantity
+FROM order_details od
+JOIN orders o ON od.order_id = o.order_id
+JOIN customers c ON o.customer_id = c.customer_id
+GROUP BY c.customer_id
+HAVING SUM(od.quantity) >= 500
+ORDER BY total_quantity DESC;
