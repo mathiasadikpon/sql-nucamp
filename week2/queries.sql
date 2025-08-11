@@ -305,6 +305,14 @@ ORDER BY s.state_name;
 -- from a subquery that selects the territory_id from the employees_territories table. 
 
 -- Finally, take the final result set and order by territory_id.
+SELECT t.territory_description, r.region_description
+FROM territories t
+JOIN regions r ON t.region_id = r.region_id
+WHERE t.territory_id NOT IN (
+    SELECT territory_id
+    FROM employees_territories
+)
+ORDER BY t.territory_id;  
 
 
 
@@ -317,6 +325,12 @@ ORDER BY s.state_name;
 --
 -- Hint: While there are other ways, this is a good chance to use the UNION
 -- operator, as demonstrated in the lesson SQL Set Operations.
+SELECT company_name, address, city, region, postal_code, country
+FROM suppliers
+UNION
+SELECT company_name, address, city, region, postal_code, country
+FROM customers
+ORDER BY company_name;
 
 
 
