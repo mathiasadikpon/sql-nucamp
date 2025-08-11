@@ -70,6 +70,8 @@ ON DELETE CASCADE;
 --
 -- Test your answer in pgAdmin or psql and verify that it worked correctly, then
 -- place it in the blank space below.
+INSERT INTO employees_categories (employee_id, category_id) VALUES
+(1,2), (3,4), (4,3), (4,4), (8,2), (1,8), (1,3), (1,6);
 
 
 
@@ -81,6 +83,9 @@ ON DELETE CASCADE;
 -- 
 -- Test your answer in pgAdmin or psql and verify that it worked correctly, then
 -- place it in the blank space below.
+TRUNCATE TABLE employees_categories;
+-- or
+DELETE FROM employees_categories;   
 
 
 
