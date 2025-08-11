@@ -244,6 +244,9 @@ ORDER BY p.product_id;
 SELECT DISTINCT r.region_description, t.territory_description, e.last_name, e.first_name
 FROM employees e
 JOIN employees_territories et ON e.employee_id = et.employee_id
+JOIN territories t ON et.territory_id = t.territory_id
+JOIN regions r ON t.region_id = r.region_id
+ORDER BY r.region_description, t.territory_description, e.last_name, e.first_name;
 
 
 
