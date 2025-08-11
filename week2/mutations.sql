@@ -4,7 +4,7 @@
 -- zero or more categories, and they want the database to keep track of who is
 -- an expert in what. 
 -- Q: How will you satisfy this new requirement? 
--- A:
+-- A: 
 -- Q: What type of relationship is this? (e.g. 1-1, 1-many, or many-to-many?)
 -- A: 
 -- Fill in your answer above. 
@@ -20,7 +20,12 @@
 --
 -- Test your answer by running it in pgAdmin or psql. Afterward, verify
 -- that the employees_categories has been created with the expected columns
--- and primary key. Place your answer in the blank space below. 
+-- and primary key. Place your answer in the blank space below.
+CREATE TABLE employees_categories (
+    employee_id INTEGER,
+    category_id INTEGER,
+    PRIMARY KEY (employee_id, category_id)
+); 
 
 
 
