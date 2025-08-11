@@ -55,6 +55,11 @@ ON DELETE CASCADE;
 --
 -- Test your answer in pgAdmin or psql and verify that it worked correctly, then
 -- place it in the blank space below.
+ALTER TABLE employees_categories
+ADD CONSTRAINT fk_ec_categories
+FOREIGN KEY (category_id)
+REFERENCES categories(category_id)
+ON DELETE CASCADE;
 
 
 
