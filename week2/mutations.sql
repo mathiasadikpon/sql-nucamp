@@ -4,9 +4,12 @@
 -- zero or more categories, and they want the database to keep track of who is
 -- an expert in what. 
 -- Q: How will you satisfy this new requirement? 
--- A: 
+-- A: Create a join table named employees_categories with foreign keys 
+    -- referencing employees(employee_id) and categories(category_id), 
+    -- allowing each employee to be linked to zero or more categories 
+    -- and each category to be linked to zero or more employees.
 -- Q: What type of relationship is this? (e.g. 1-1, 1-many, or many-to-many?)
--- A: 
+-- A: many-to-many
 -- Fill in your answer above. 
 
 
@@ -99,6 +102,13 @@ DELETE FROM employees_categories;
 --
 -- Test your answer in pgAdmin or psql and verify that it worked correctly, then
 -- place it in the blank space below.
+INSERT INTO employees_categories (employee_id, category_id)
+SELECT e.employee_id, c.category_id
+FROM employees e
+CROSS JOIN categories c
+WHERE e.city = 'London'
+  AND c.category_name = 'Dairy Products';
+
 
 
 
@@ -110,3 +120,4 @@ DELETE FROM employees_categories;
 --
 -- Test your answer in pgAdmin or psql and verify that it worked correctly, then
 -- place it in the blank space below.
+DROP TABLE employees_categories;
