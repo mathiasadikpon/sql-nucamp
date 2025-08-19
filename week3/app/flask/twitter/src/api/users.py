@@ -43,3 +43,15 @@ def create():
     db.session.commit()  # execute CREATE statement
 
     return jsonify(u.serialize())
+
+# Task 5: Implement Delete User endpoint
+@bp.route('/<int:id>', methods=['DELETE'])
+def delete(id: int):
+    u = User.query.get_or_404(id)
+    try:
+        db.session.delete(u)  # prepare DELETE statement
+        db.session.commit()  # execute DELETE statement
+        return jsonify(True)
+    except:
+        # something went wrong :(
+        return jsonify(False)
