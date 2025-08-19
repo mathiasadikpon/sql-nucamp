@@ -2,6 +2,7 @@ from flask import Blueprint, jsonify, abort, request
 from ..models import User, db, Tweet, likes_table
 import hashlib
 import secrets
+import sqlalchemy
 
 def scramble(password: str):
     """Hash and salt the given password"""
@@ -98,3 +99,35 @@ def liked_tweets(id: int):
     for t in u.liked_tweets:
         result.append(t.serialize())
     return jsonify(result)
+
+# Bonus Task 1: Implement Like endpoint
+@bp.route('/<int:id>/likes', methods=['POST'])
+def like(id: int):
+    # req body must contain tweet_id
+    if 'tweet_id' not in request.json:
+        return abort(400)
+
+    # user with id of id must exist
+    u = User.query.get_or_404(id)
+
+    # tweet with id of tweet_id must exist
+    t = Tweet.query.get_or_404(request.json['tweet_id'])
+
+    # check if user already likes the tweet
+    if u in t.liking_users:
+        return jsonify(False)
+    # prepare INSERT statement
+    stmt = sqlalchemy.insert(likes_table).values(
+        user_id=u.id,
+        tweet_id=t.id
+    )
+    try:
+        db.session.execute(stmt)  # execute INSERT statement
+        db.session.commit()  # commit changes
+        return jsonify(True)
+    except:
+        # something went wrong :(
+        return jsonify(False)   
+    
+
+
