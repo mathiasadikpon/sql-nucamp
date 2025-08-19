@@ -89,3 +89,12 @@ def update(id: int):
     except:
         # something went wrong :(
         return jsonify(False)
+    
+# Task 8: Implement Liked Tweets endpoint
+@bp.route('/<int:id>/liked_tweets', methods=['GET'])
+def liked_tweets(id: int):
+    u = User.query.get_or_404(id)
+    result = []
+    for t in u.liked_tweets:
+        result.append(t.serialize())
+    return jsonify(result)
