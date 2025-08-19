@@ -55,3 +55,37 @@ def delete(id: int):
     except:
         # something went wrong :(
         return jsonify(False)
+
+# Task 6: Implement Update User endpoint
+# In this task, you will write code to handle a PUT or PATCH request made to http://localhost:3000/users/:id.
+@bp.route('/<int:id>', methods=['PUT', 'PATCH'])
+def update(id: int):
+    # check if user with id exists
+    # if not, return with an abort of 404
+    u = User.query.get_or_404(id)
+
+    # req body must contain at least one of username or password
+    # if neither username nor password is provided, return with an abort of 400
+    if 'username' not in request.json and 'password' not in request.json:
+        return abort(400)
+    
+    # if the request body contains a username field, update the user's username to that value
+    # the username must be at least 3 characters long
+    if 'username' in request.json:
+        if len(request.json['username']) < 3:
+            return abort(400)
+        u.username = request.json['username']
+
+    # if the request body contains a password field, update the user's password to that value
+    # the password must be at least 8 characters long, if not, return with an
+    if 'password' in request.json:
+        if len(request.json['password']) < 8:
+            return abort(400)
+        u.password = scramble(request.json['password'])
+
+    try:
+        db.session.commit()  # execute UPDATE statement
+        return jsonify(u.serialize())
+    except:
+        # something went wrong :(
+        return jsonify(False)
