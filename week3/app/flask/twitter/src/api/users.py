@@ -101,6 +101,9 @@ def liked_tweets(id: int):
     return jsonify(result)
 
 # Bonus Task 1: Implement Like endpoint
+# Format: /users/:id/likes
+# req body must contain tweet_id
+# stmt = sqlalchemy.insert(likes_table).values(user_id=u.id, tweet_id=t.id
 @bp.route('/<int:id>/likes', methods=['POST'])
 def like(id: int):
     # req body must contain tweet_id
