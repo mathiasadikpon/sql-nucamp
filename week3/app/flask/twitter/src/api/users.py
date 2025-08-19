@@ -131,18 +131,7 @@ def like(id: int):
     
 
 # Bonus Task 2: Implement Unlike endpoint
-# In this task, you will implement an endpoint that causes the user identified by the id path parameter to "unlike" the target Tweet.
-# A DELETE request to http://localhost:3000/users/:user_id/likes/:tweet_id should respond with true if the like record is successfully deleted, else false.
-
-# First, create a new Insomnia request under users/unlike.
-# Then, implement the unlike function in users.py:
-# Two validation checks should take place (else abort with 404):
-# User for user_id exists
-# Tweet for tweet_id exists
-# You will need to import sqlalchemy at the top of the file if you haven't already.
-# View the sqlalchemy.delete() documentation
-# Since there is already a function named delete in the users.py file, use sqlalchemy.delete instead of delete like this example below:
-# import sqlalchemy
+# Format: /users/:user_id/likes/:tweet_id  
 # stmt = sqlalchemy.delete(user_table).where(user_table.c.name == 'patrick')
 @bp.route('/<int:user_id>/likes/<int:tweet_id>', methods=['DELETE'])
 def unlike(user_id: int, tweet_id: int):
