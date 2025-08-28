@@ -57,3 +57,11 @@ INSERT INTO moma_artists (info) VALUES (
 INSERT INTO moma_artists (info) VALUES (
     json_object('{display_name, nationality}', '{Ablade Glover, Ghanaian}')
 );
+
+-- Query artist information
+SELECT info->>'display_name' AS display_name,
+       info->>'national 
+FROM moma_artists
+WHERE info->>'nationality' = 'Ghanaian'
+    AND info->>'display_name' = 'Ablade Glover';
+
